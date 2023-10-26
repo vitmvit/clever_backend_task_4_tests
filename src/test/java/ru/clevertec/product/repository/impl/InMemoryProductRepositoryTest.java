@@ -1,9 +1,8 @@
-package ru.clevertec.product.mapper.impl;
+package ru.clevertec.product.repository.impl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.clevertec.product.entity.Product;
-import ru.clevertec.product.repository.impl.InMemoryProductRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
