@@ -3,14 +3,15 @@ package ru.clevertec.product.repository.impl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.clevertec.product.entity.Product;
+import ru.clevertec.product.util.ProductTestData;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.clevertec.product.constant.Constant.PRODUCT_UUID;
+import static ru.clevertec.product.util.ProductTestData.builder;
 
 public class InMemoryProductRepositoryTest {
 
@@ -24,11 +25,10 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnExpectedProductWithUUID() {
         // given
-        UUID uuid = UUID.fromString("2b4b6ef8-742c-11ee-b962-0242ac120002");
-        Product expected = new Product(uuid, "Яблоко", "Вкусное", BigDecimal.valueOf(1.01), LocalDateTime.MIN);
+        ProductTestData expected = builder().build();
 
         // when
-        Product actual = productRepository.findById(uuid).orElseThrow();
+        Product actual = productRepository.findById(expected.getUuid()).orElseThrow();
 
         // then
         assertThat(actual).hasFieldOrPropertyWithValue(Product.Fields.uuid, expected.getUuid());
@@ -37,11 +37,10 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnExpectedProductWithName() {
         // given
-        UUID uuid = UUID.fromString("2b4b6ef8-742c-11ee-b962-0242ac120002");
-        Product expected = new Product(uuid, "Яблоко", "Вкусное", BigDecimal.valueOf(1.01), LocalDateTime.MIN);
+        ProductTestData expected = builder().build();
 
         // when
-        Product actual = productRepository.findById(uuid).orElseThrow();
+        Product actual = productRepository.findById(expected.getUuid()).orElseThrow();
 
         // then
         assertThat(actual).hasFieldOrPropertyWithValue(Product.Fields.name, expected.getName());
@@ -50,11 +49,10 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnExpectedProductWithDescription() {
         // given
-        UUID uuid = UUID.fromString("2b4b6ef8-742c-11ee-b962-0242ac120002");
-        Product expected = new Product(uuid, "Яблоко", "Вкусное", BigDecimal.valueOf(1.01), LocalDateTime.MIN);
+        ProductTestData expected = builder().build();
 
         // when
-        Product actual = productRepository.findById(uuid).orElseThrow();
+        Product actual = productRepository.findById(expected.getUuid()).orElseThrow();
 
         // then
         assertThat(actual).hasFieldOrPropertyWithValue(Product.Fields.description, expected.getDescription());
@@ -63,11 +61,10 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnExpectedProductWithPrice() {
         // given
-        UUID uuid = UUID.fromString("2b4b6ef8-742c-11ee-b962-0242ac120002");
-        Product expected = new Product(uuid, "Яблоко", "Вкусное", BigDecimal.valueOf(1.01), LocalDateTime.MIN);
+        ProductTestData expected = builder().build();
 
         // when
-        Product actual = productRepository.findById(uuid).orElseThrow();
+        Product actual = productRepository.findById(expected.getUuid()).orElseThrow();
 
         // then
         assertThat(actual).hasFieldOrPropertyWithValue(Product.Fields.price, expected.getPrice());
@@ -76,11 +73,10 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnExpectedProductWithCreated() {
         // given
-        UUID uuid = UUID.fromString("2b4b6ef8-742c-11ee-b962-0242ac120002");
-        Product expected = new Product(uuid, "Яблоко", "Вкусное", BigDecimal.valueOf(1.01), LocalDateTime.MIN);
+        ProductTestData expected = builder().build();
 
         // when
-        Product actual = productRepository.findById(uuid).orElseThrow();
+        Product actual = productRepository.findById(expected.getUuid()).orElseThrow();
 
         // then
         assertThat(actual).hasFieldOrPropertyWithValue(Product.Fields.created, expected.getCreated());
@@ -89,11 +85,10 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnExpectedProductEqualsWithoutUUID() {
         // given
-        UUID uuid = UUID.fromString("2b4b6ef8-742c-11ee-b962-0242ac120002");
-        Product expected = new Product(uuid, "Яблоко", "Вкусное", BigDecimal.valueOf(1.01), LocalDateTime.MIN);
+        ProductTestData expected = builder().build();
 
         // when
-        Product actual = productRepository.findById(uuid).orElseThrow();
+        Product actual = productRepository.findById(expected.getUuid()).orElseThrow();
 
         // then
         assertThat(actual)
@@ -106,7 +101,7 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnOptionalEmpty() {
         // given
-        UUID uuid = UUID.fromString("2b4b6ef8-742c-11ee-b962-0242ac120003");
+        UUID uuid = UUID.fromString(PRODUCT_UUID);
         Optional<Product> expected = Optional.empty();
 
         // when
@@ -115,17 +110,4 @@ public class InMemoryProductRepositoryTest {
         // then
         assertEquals(expected, actual);
     }
-
-
-//    @Test
-//    void findAll() {
-//    }
-//
-//    @Test
-//    void save() {
-//    }
-//
-//    @Test
-//    void delete() {
-//    }
 }
