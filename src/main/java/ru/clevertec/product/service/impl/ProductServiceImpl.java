@@ -38,6 +38,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void delete(UUID uuid) {
-
+        productRepository.delete(uuid);
     }
 }
