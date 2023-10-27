@@ -2,6 +2,8 @@ package ru.clevertec.product.util;
 
 import lombok.Builder;
 import lombok.Data;
+import ru.clevertec.product.data.ProductDto;
+import ru.clevertec.product.entity.Product;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -27,4 +29,12 @@ public class ProductTestData {
 
     @Builder.Default
     private LocalDateTime created = PRODUCT_DATE_CREATED;
+
+    public Product buildProduct() {
+        return new Product(uuid, name, description, price, created);
+    }
+
+    public ProductDto buildProductDto() {
+        return new ProductDto(name, description, price);
+    }
 }

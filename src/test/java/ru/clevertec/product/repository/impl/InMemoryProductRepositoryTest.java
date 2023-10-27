@@ -10,7 +10,6 @@ import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.clevertec.product.constant.Constant.PRODUCT_UUID;
 import static ru.clevertec.product.util.ProductTestData.builder;
 
 public class InMemoryProductRepositoryTest {
@@ -101,7 +100,7 @@ public class InMemoryProductRepositoryTest {
     @Test
     void findByIdShouldReturnOptionalEmpty() {
         // given
-        UUID uuid = UUID.fromString(PRODUCT_UUID);
+        UUID uuid = ProductTestData.builder().build().getUuid();
         Optional<Product> expected = Optional.empty();
 
         // when
