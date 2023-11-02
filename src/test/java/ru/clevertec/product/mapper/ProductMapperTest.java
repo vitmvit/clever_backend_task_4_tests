@@ -1,10 +1,10 @@
 package ru.clevertec.product.mapper;
 
 import org.junit.jupiter.api.Test;
+import ru.clevertec.product.constant.util.ProductTestData;
 import ru.clevertec.product.data.InfoProductDto;
 import ru.clevertec.product.data.ProductDto;
 import ru.clevertec.product.entity.Product;
-import ru.clevertec.product.util.ProductTestData;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -49,6 +49,5 @@ public class ProductMapperTest {
         assertEquals(expected.getDescription(), actual.getDescription());
         assertEquals(expected.getPrice(), actual.getPrice());
         assertEquals(expected.getCreated(), actual.getCreated());
-
     }
 }

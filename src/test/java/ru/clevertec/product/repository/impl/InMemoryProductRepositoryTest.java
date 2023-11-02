@@ -4,8 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.clevertec.product.connection.DbConnection;
+import ru.clevertec.product.constant.util.ProductTestData;
 import ru.clevertec.product.entity.Product;
-import ru.clevertec.product.util.ProductTestData;
 
 import java.util.List;
 import java.util.Optional;
@@ -178,5 +178,4 @@ public class InMemoryProductRepositoryTest {
             productRepository.delete(product.getUuid());
         }
     }
-
 }
