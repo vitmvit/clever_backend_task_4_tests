@@ -2,6 +2,7 @@ package ru.clevertec.product.util;
 
 import lombok.Builder;
 import lombok.Data;
+import ru.clevertec.product.data.InfoProductDto;
 import ru.clevertec.product.data.ProductDto;
 import ru.clevertec.product.entity.Product;
 
@@ -16,7 +17,7 @@ import static ru.clevertec.product.constant.Constant.*;
 public class ProductTestData {
 
     @Builder.Default
-    private UUID uuid = UUID.fromString(PRODUCT_UUID);
+    private UUID uuid = PRODUCT_UUID;
 
     @Builder.Default
     private String name = PRODUCT_NAME;
@@ -34,7 +35,15 @@ public class ProductTestData {
         return new Product(uuid, name, description, price, created);
     }
 
+    public Product buildUpdateProduct() {
+        return new Product(uuid, name, description + " new", price.add(BigDecimal.valueOf(2)), created);
+    }
+
     public ProductDto buildProductDto() {
         return new ProductDto(name, description, price);
+    }
+
+    public InfoProductDto buildInfoProductDto() {
+        return new InfoProductDto(uuid, name, description, price);
     }
 }
